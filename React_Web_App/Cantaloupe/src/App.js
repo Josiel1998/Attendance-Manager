@@ -6,14 +6,15 @@ import register from './components/register';
 import login from './components/login';
 import error from './components/error';
 import NavBar from './components/NavBar';
+import subscribe from './components/interested';
 
 import logo from "./Cantaloupe-UI/ios/cantaloupe-logo.png"
 
 class App extends Component {
   render() {
 
-    let interested = [
-      {label: 'Interested?', link: 'interested'}
+    let subscription = [
+      {label: 'Interested?', link: 'subscribe'}
     ];
 
     let links = [
@@ -28,11 +29,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <NavBar links={links} landing={landing} interested={interested} logo={logo} />
+          <NavBar links={links} landing={landing} subscribe={subscription} logo={logo} />
           <Switch>
             <Route path="/" component={index} exact/>
             <Route path="/register" component={register} />
-            <Route path="/login" component={login} />      
+            <Route path="/login" component={login} /> 
+            <Route path="/subscribe" component={subscribe} />      
             <Route component={error} />
           </Switch>        
         </div>

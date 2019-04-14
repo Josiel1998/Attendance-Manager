@@ -16,7 +16,7 @@ class NavbarPage extends Component {
 
     render() {
 
-        let interestedMarkup = this.props.interested.map((link, index) => {
+        let subscribeMarkup = this.props.subscribe.map((link, index) => {
             return (
                 <MDBNavItem>
                     <Link className="nav-link interestedLink" to={link.link}>{link.label}</Link>
@@ -54,7 +54,7 @@ class NavbarPage extends Component {
                         </MDBNavItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
-                        {interestedMarkup}
+                        {subscribeMarkup}
                         {linksMarkup}
                     {/*<MDBNavItem>
                         <MDBDropdown>
