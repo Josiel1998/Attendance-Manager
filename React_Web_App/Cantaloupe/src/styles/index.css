@@ -44,7 +44,7 @@ a , .color, .footerLink, .fas{
     transition: all 0.5s ease 0s;
 }
 .our-team .pic:after{
-    background: rgba(252, 146, 33, 0.8);
+    background: rgba(211, 201, 201, 0.8);
     top: auto;
     left: auto;
     bottom: -100%;
@@ -76,7 +76,7 @@ a , .color, .footerLink, .fas{
     height: 40px;
     line-height: 40px;
     font-size: 20px;
-    color: #fff;
+    color: black;
     margin-right: 10px;
     position: relative;
     transition: all 0.3s ease 0s;
@@ -85,8 +85,8 @@ a , .color, .footerLink, .fas{
     content: "";
     width: 100%;
     height: 100%;
-    background: #db162f;
-    border-radius: 0 20px 20px 20px;
+    background: #FC9221;
+    border-radius: 20px 20px 20px 20px;
     position: absolute;
     top: 0;
     left: 0;
@@ -112,4 +112,9 @@ a , .color, .footerLink, .fas{
 }
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }
+}
+
+/* NAVBAR */
+.navbar-fixed-solution{
+    padding-top:90px;
 }

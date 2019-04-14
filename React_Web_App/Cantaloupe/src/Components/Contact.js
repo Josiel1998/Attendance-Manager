@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <MDBContainer>
       <MDBRow>
-        <MDBCol md="6">
+        <MDBCol  md="12">
           <form>
             <div className="grey-text">
               <MDBInput
@@ -43,7 +43,7 @@ const Contact = () => {
               />
             </div>
             <div className="text-center">
-              <MDBBtn outline color="secondary">
+              <MDBBtn outline color="amber">
                 Send <MDBIcon far icon="paper-plane" className="ml-1" />
               </MDBBtn>
             </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse} 
     from "mdbreact";
+import "../styles/index.css";
 
 class NavbarPage extends Component {
     state = {
@@ -13,31 +14,38 @@ class NavbarPage extends Component {
     }
 
     render() {
-        this.props.links.map((link, index)=> {
-            return {
 
-            };
+        let landingMarkup = this.props.landing.map((link, index) => {
+            return (
+                <MDBNavItem>
+                    <a className="nav-link" href={link.link}>{link.label}</a>
+                </MDBNavItem>
+            );
+        });
+
+        let linksMarkup = this.props.links.map((link, index) => {
+            return (
+                <MDBNavItem>
+                    <a className="nav-link" href={link.link}>{link.label}</a>
+                </MDBNavItem>
+            );
         });
 
     return (
-        <MDBNavbar color="unique-color-dark" dark expand="md">
+        <MDBNavbar className="navbar-light" color="grey lighten-4" scrolling expand="md" fixed="top" tag="div">
         <MDBNavbarBrand>
-            <strong className="white-text">CANTALOUPE LOGO</strong>
+            <img className="navbar-brand" width="40" height="40" src={this.props.logo}/>
         </MDBNavbarBrand>
-        <MDBNavbarToggler onClick={this.toggleCollapse} />
+        <MDBNavbarToggler onClick={this.toggleCollapse} color="red" />
+        
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
-            <MDBNavItem active>
-                <a className="nav-link" href="/">About</a>
-            </MDBNavItem>
+                <MDBNavItem active>
+                    {landingMarkup}
+                </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
-            <MDBNavItem>
-                <a className="nav-link" href="/register">Register</a>
-            </MDBNavItem>
-            <MDBNavItem>
-                <a className="nav-link" href="/login">Login</a>
-            </MDBNavItem>
+                {linksMarkup}
             {/*<MDBNavItem>
                 <MDBDropdown>
                 <MDBDropdownToggle nav caret>
