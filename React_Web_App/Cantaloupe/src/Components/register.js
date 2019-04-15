@@ -55,7 +55,7 @@ const Register = () => {
                 />
                 </div>
                 <div className="text-center">
-                <MDBBtn outline color="amber">Register</MDBBtn>
+                <MDBBtn id="POSTRegister" outline color="amber">Register</MDBBtn>
                 </div>
             </form>
             </MDBCol>

@@ -29,7 +29,7 @@ const Login = () => {
                     />
                     </div>
                     <div className="text-center">
-                    <MDBBtn outline color="amber">Login</MDBBtn>
+                    <MDBBtn id="POSTLogin" outline color="amber">Login</MDBBtn>
                     </div>
                 </form>
                 </MDBCol>
