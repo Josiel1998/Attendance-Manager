@@ -109,15 +109,19 @@ class App extends Component {
       {label: 'Register', link: '/register'},
       {label: 'Login', link: '/login'}
     ];
+
     let landing = [
-        {label: 'Home', link: '/'},
-        {label: 'Dashboard', link: "/dashboard"}
+        {label: 'Home', link: '/'}
+    ];
+
+    let dash=[
+      {label: 'Dashboard', link: "/dashboard"}
     ];
 
     return (
       <BrowserRouter>
         <div>
-          <NavBar links={links} landing={landing} subscribe={subscription} logo={logo} />
+          <NavBar links={links} landing={landing} subscribe={subscription} dash = {dash} logo={logo} />
 
           <Switch>
             <Route path="/" component={index} exact/>

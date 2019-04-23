@@ -28,6 +28,14 @@ class NavbarPage extends Component {
         let landingMarkup = this.props.landing.map((link, index) => {
             return (
                 <MDBNavItem>
+                    <Link className="nav-link" key={link.label} to={link.link}>{link.label}</Link>
+                </MDBNavItem>
+            );
+        });
+
+        let dashMarkup = this.props.dash.map((link, index) => {
+            return (
+                <MDBNavItem>
                     <Link className="nav-link isDisabled" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
@@ -51,6 +59,7 @@ class NavbarPage extends Component {
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <MDBNavbarNav left>
                             {landingMarkup}
+                            {dashMarkup}
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
                         {subscribeMarkup}
