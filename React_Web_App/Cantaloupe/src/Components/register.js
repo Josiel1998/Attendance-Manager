@@ -1,19 +1,32 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdbreact';
 import Footer from "../components/Footer.js";
 
-const Register = () => {
+const Register = (props) => {
+
   return (
       <div className="navbar-fixed-solution">
         <div className="container">
         <MDBContainer>
         <MDBRow>
             <MDBCol md="6">
-            <form>
                 <h3 className="h3Title color">&nbsp; Sign Up Today!</h3>
+            <form onSubmit={props.registerUser}>
+                
                 <div className="grey-text">
-                <MDBInput
-                    label="Your name"
+                <MDBInput  
+                    id="register_fname"
+                    label="Your first name"
+                    icon="user"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                />
+                <MDBInput  
+                    id="register_lname"
+                    label="Your last name"
                     icon="user"
                     group
                     type="text"
@@ -22,6 +35,7 @@ const Register = () => {
                     success="right"
                 />
                 <MDBInput
+                    id="register_email"
                     label="Your email"
                     icon="envelope"
                     group
@@ -31,32 +45,20 @@ const Register = () => {
                     success="right"
                 />
                 <MDBInput
-                    label="Confirm your email"
-                    icon="exclamation-triangle"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                />
-                <MDBInput
+                    id="register_password"
                     label="Your password"
                     icon="lock"
                     group
                     type="password"
+                    autoComplete="on"
                     validate
-                />
-                <MDBInput
-                    label="Confirm password"
-                    icon="exclamation-triangle"
-                    group
-                    type="password"
-                    validate
-                />
+                />             
+                    <div className="text-center">
+                        {/*<MDBBtn id="POSTRegister" outline color="amber">Register</MDBBtn>*/}
+                        <button className="btn btn-outline-amber Ripple-parent" id="POSTRegister" type="submit">Register</button>
+                    </div>
                 </div>
-                <div className="text-center">
-                <MDBBtn id="POSTRegister" outline color="amber">Register</MDBBtn>
-                </div>
+
             </form>
             </MDBCol>
         </MDBRow>

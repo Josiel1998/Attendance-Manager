@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap-css-only/css/bootstrap.min.css";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse} 
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, 
+    MDBDropdownItem, MDBDropdown, MDBDropdownToggle, MDBIcon, MDBDropdownMenu} 
     from "mdbreact";
 import { Link } from "react-router-dom";
 import "../styles/stylesheet.css"
@@ -19,7 +20,7 @@ class NavbarPage extends Component {
         let subscribeMarkup = this.props.subscribe.map((link, index) => {
             return (
                 <MDBNavItem>
-                    <Link className="nav-link interestedLink" to={link.link}>{link.label}</Link>
+                    <Link className="nav-link interestedLink" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
         });
@@ -27,7 +28,7 @@ class NavbarPage extends Component {
         let landingMarkup = this.props.landing.map((link, index) => {
             return (
                 <MDBNavItem>
-                    <Link className="nav-link" to={link.link}>{link.label}</Link>
+                    <Link className="nav-link isDisabled" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
         });
@@ -35,7 +36,7 @@ class NavbarPage extends Component {
         let linksMarkup = this.props.links.map((link, index) => {
             return (
                 <MDBNavItem>
-                    <a className="nav-link" href={link.link}>{link.label}</a>
+                    <Link className="nav-link isDisabled" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
         });
@@ -49,26 +50,24 @@ class NavbarPage extends Component {
             
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <MDBNavbarNav left>
-                        <MDBNavItem active>
                             {landingMarkup}
-                        </MDBNavItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
                         {subscribeMarkup}
                         {linksMarkup}
-                    {/*<MDBNavItem>
-                        <MDBDropdown>
+                    <MDBNavItem>
+                        <MDBDropdown className="isDisabled">
                         <MDBDropdownToggle nav caret>
                             <MDBIcon icon="user" />
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default" right>
-                            <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                            <MDBDropdownItem href="#!">Account</MDBDropdownItem>
+                            <MDBDropdownItem href="#!">Settings</MDBDropdownItem>
+                            <MDBDropdownItem href="#!">Help</MDBDropdownItem>
+                            <MDBDropdownItem href="#!">Sign out</MDBDropdownItem>
                         </MDBDropdownMenu>
                         </MDBDropdown>
-                    </MDBNavItem>*/}
+                    </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>

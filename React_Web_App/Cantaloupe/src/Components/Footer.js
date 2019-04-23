@@ -6,7 +6,7 @@ const Footer = () => {
     <MDBFooter color="transparent" className="font-small pt-4 mt-4">
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href=""> Cantaloupe</a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="www.google.com"> Cantaloupe</a>
         </MDBContainer>
       </div>
     </MDBFooter>

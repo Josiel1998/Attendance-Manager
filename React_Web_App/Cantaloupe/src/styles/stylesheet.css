@@ -119,6 +119,18 @@ a , .color, .footerLink, .fas{
     color:  #FC9221!important;
 }
 
+.navbar-fixed-solution-index{
+    padding-top:62px;
+}
+
 .navbar-fixed-solution{
     padding-top:90px;
 }
+
+.isDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+    pointer-events: none;
+  }
