@@ -8,8 +8,12 @@ import "../styles/stylesheet.css"
 
 class NavbarPage extends Component {
     state = {
-    isOpen: false
+        isOpen: false
     };
+
+    auth = {
+        authenticated: this.props.authState
+    }
 
     toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
@@ -18,11 +22,13 @@ class NavbarPage extends Component {
     render() {
 
         let subscribeMarkup = this.props.subscribe.map((link, index) => {
+            if (this.auth.authenticated){}
+            else{
             return (
                 <MDBNavItem>
                     <Link className="nav-link interestedLink" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
-            );
+            );}
         });
 
         let landingMarkup = this.props.landing.map((link, index) => {
@@ -36,7 +42,7 @@ class NavbarPage extends Component {
         let dashMarkup = this.props.dash.map((link, index) => {
             return (
                 <MDBNavItem>
-                    <Link className="nav-link isDisabled" key={link.label} to={link.link}>{link.label}</Link>
+                    <Link className="nav-link" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
         });
@@ -44,7 +50,7 @@ class NavbarPage extends Component {
         let linksMarkup = this.props.links.map((link, index) => {
             return (
                 <MDBNavItem>
-                    <Link className="nav-link isDisabled" key={link.label} to={link.link}>{link.label}</Link>
+                    <Link className="nav-link" key={link.label} to={link.link}>{link.label}</Link>
                 </MDBNavItem>
             );
         });
@@ -65,7 +71,7 @@ class NavbarPage extends Component {
                         {subscribeMarkup}
                         {linksMarkup}
                     <MDBNavItem>
-                        <MDBDropdown className="isDisabled">
+                        <MDBDropdown className="">
                         <MDBDropdownToggle nav caret>
                             <MDBIcon icon="user" />
                         </MDBDropdownToggle>
@@ -73,7 +79,7 @@ class NavbarPage extends Component {
                             <MDBDropdownItem href="#!">Account</MDBDropdownItem>
                             <MDBDropdownItem href="#!">Settings</MDBDropdownItem>
                             <MDBDropdownItem href="#!">Help</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Sign out</MDBDropdownItem>
+                            <MDBDropdownItem href="#!">Log out</MDBDropdownItem>
                         </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>

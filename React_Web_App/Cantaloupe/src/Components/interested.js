@@ -32,7 +32,7 @@ const interested = () => {
                     </div>
                     <div className="text-center">
                     <MDBBtn outline color="amber">
-                        Subscribe
+                        IM IN
                     </MDBBtn>
                     </div>
                 </form>

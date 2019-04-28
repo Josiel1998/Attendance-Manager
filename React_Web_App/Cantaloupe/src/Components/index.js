@@ -13,8 +13,8 @@ import nick from "../styles/images/nick.png";
 import max from "../styles/images/max.png";
 import daniel from "../styles/images/daniel.png";
 
-import Contact from "../components/Contact.js";
-import Footer from "../components/Footer.js";
+import Contact from "./Contact.js";
+import Footer from "./Footer.js";
 
 const index = () =>{
     return(
@@ -35,6 +35,7 @@ const index = () =>{
                             className="d-block w-100"
                             src={imgCantaloupe}
                             alt="First slide"
+                            height="550px"
                         />
                         </MDBView>
                         </MDBCarouselItem>
@@ -63,8 +64,7 @@ const index = () =>{
                                 <i className="fas fa-shield-alt fa-7x"></i>
                             </div>
                             <h2>Secure</h2>
-                            <p>Cantaloupe will use bluetooth technology to validate location and dual athentication for attendance check-in records. 
-                            Please visit our FAQ for more details.</p>
+                            <p>Cantaloupe will use a form of dual athentication using location and facial recognition technology.</p>
                         </center>
                     </div>
                     <div className="col-lg-4 our-team">

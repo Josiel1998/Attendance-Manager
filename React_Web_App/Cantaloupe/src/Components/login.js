@@ -33,7 +33,7 @@ const Login = (props) => {
                     />
                     <Link to="/">Forgot password?</Link>
                     <div className="text-center">
-                        <button className="btn btn-outline-amber Ripple-parent" id="POSTLogin" type="submit">Register</button>
+                        <button className="btn btn-outline-amber Ripple-parent" id="POSTLogin" type="submit">Log In</button>
                     </div>
                     </div>
                 </form>

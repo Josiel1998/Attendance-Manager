@@ -12,7 +12,7 @@ import dashboard from './components/dashboard';
 
 import logo from "./Cantaloupe-UI/ios/cantaloupe-logo.png"
 
-
+//Authetication Manager
 const auth ={
   isAuthenticated: false,
   authenticate(cb) {
@@ -25,6 +25,7 @@ const auth ={
   }
 }
 
+//Private Route
 const PrivateRoute = ({ component: Component, ...rest}) =>(
   <Route {...rest} render={() =>(
     auth.isAuthenticated === true 
@@ -33,11 +34,13 @@ const PrivateRoute = ({ component: Component, ...rest}) =>(
   )}/>
 )
 
+//------------------------------------------------------------------------------------------------------------
+
+
 class App extends Component {
   state ={
-    bearerToken: null
+    redirectToDashboard: false
   }
-
 
   //POST Register Request
   registerUser = (event) => {
@@ -54,15 +57,12 @@ class App extends Component {
       last_name: lname,
       email: email_r,
       password: password_r
-    })  //Success
+    })
     .then(function (response) {
-      const bearerToken = response.data.bearer_token;
+      const bearer_token = response.data.bearer_token;
       console.log(response);
-      console.log(bearerToken);
-      //this.setState({bearerToken});
       alert("Success!");
-      //<Redirect to="/login"/>
-  })  //Failure
+  })  
     .catch(function (error) {
       console.log(error);
       alert("Oops! Something went wrong. Try again.");
@@ -80,28 +80,29 @@ class App extends Component {
       axios.post('https://refpv61eu7.execute-api.us-east-1.amazonaws.com/dev/auth/login',{
         email: email_l,
         password: password_l,
-      })  //Success
+      })
       .then(function (response) {
-        const bearerToken = response.data.bearer_token;
+        const bearer_token = response.data.bearer_token;
         console.log(response);
-        console.log(bearerToken);
-        //this.setState({bearerToken});
-        alert("Success!");
         auth.authenticate();
-        //<Redirect to="/dashboard"/>
-
-    })  //Failure
+        alert("Success!");
+        return(<Redirect to="/dashboard"/>)
+    }) 
       .catch(function (error) {
         console.log(error);
         alert("Oops! Incorrect credentials.");
       });
     }
   
-
-
   render() {
 
-  //Navigation Links
+    const {redirectToDashboard} = this.state
+
+    if(redirectToDashboard === true){
+      return(<Redirect to="/dashboard"/>)
+    }
+
+  //Navigation Links (PROPS)
     let subscription = [
       {label: 'Subscribe', link: '/subscribe'}
     ];
@@ -121,14 +122,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <NavBar links={links} landing={landing} subscribe={subscription} dash = {dash} logo={logo} />
+          <NavBar links={links} landing={landing} subscribe={subscription} dash = {dash} logo={logo} authState={this.isAuthenticated} />
 
           <Switch>
             <Route path="/" component={index} exact/>
             <Route path="/register" render={(props) => <Register {...props} registerUser={this.registerUser} />}/>
             <Route path="/login" render={(props) => <Login {...props} loginUser={this.loginUser} />} /> 
-            <Route path="/subscribe" component={subscribe} />  
-            <PrivateRoute path="/dashboard" component={dashboard} />     
+            <Route path="/subscribe" component={subscribe} />
+            
+            <PrivateRoute path="/dashboard" component={dashboard} />
         
             <Route component={error} />
           </Switch>        

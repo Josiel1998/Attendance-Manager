@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdbreact';
-import Footer from "../components/Footer.js";
+import Footer from "./Footer.js";
 
 const Register = (props) => {
 
